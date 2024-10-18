@@ -42,3 +42,13 @@ tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+val jdbcUrl: String = project.findProperty("jdbc.url") as String
+val jdbcUser: String = project.findProperty("jdbc.user") as String
+val jdbcPassword: String = project.findProperty("jdbc.password") as String
+
+tasks.withType<JavaExec> {
+    systemProperty("jdbc.url", jdbcUrl)
+    systemProperty("jdbc.user", jdbcUser)
+    systemProperty("jdbc.password", jdbcPassword)
+}
