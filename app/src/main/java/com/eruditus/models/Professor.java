@@ -1,63 +1,59 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.eruditus.models;
 
 
 public class Professor {
-        private String nome;
-    private Integer idade;
-    private String formacao;
-    private String sexo;
-    private Integer id;
-    
-    public Professor(String nome, Integer idade, String formacao, String sexo, Integer id){
-        this.nome = nome;
-        this.idade = idade;
-        this.formacao = formacao;
-        this.sexo = sexo;
-        this.id = id;
-    }
+	private Integer id;
+	private String nome;
+	private Integer idade;
+	private String formacao;
+	private String sexo;
 
+	public Professor(Integer id, String nome, Integer idade, String formacao, String sexo) {
+		this.id = id;
+		this.nome = nome;
+		this.idade = idade;
+		this.formacao = formacao;
+		this.sexo = sexo;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getIdade() {
-        return idade;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getFormacao() {
-        return formacao;
-    }
+	public Integer getIdade() {
+		return idade;
+	}
 
-    public void setFormacao(String formacao) {
-        this.formacao = formacao;
-    }
+	public void setIdade(Integer idade) {
+		this.idade = idade;
+	}
 
-    public String getSexo() {
-        return sexo;
-    }
+	public String getFormacao() {
+		return formacao;
+	}
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
+	public void setFormacao(String formacao) {
+		this.formacao = formacao;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public String getSexo() {
+		return sexo;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
 }

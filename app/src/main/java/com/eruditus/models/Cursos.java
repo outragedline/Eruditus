@@ -1,72 +1,69 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.eruditus.models;
 
 public class Cursos {
-        private Integer id;
-    private String nome;
-    private String desc;
-    private Integer duracao;
-    private Integer numeroAulas;
-    private Double horasDiarias;
-    
-    public Cursos(Integer id, String nome, String desc, Integer duracao, Integer numeroAulas, Double horasDiarias){
-        this.id = id;
-        this.nome = nome;
-        this.desc = desc;
-        this.duracao = duracao;
-        this.numeroAulas = numeroAulas;
-        this.horasDiarias = horasDiarias;
-    }
+	private Integer id;
+	private String nome;
+	private String desc;
+	private Integer duracao;
+	private Integer cargaHorariaTotal;
+	private Double cargaHorariaDiaria;
 
+	public Cursos(Integer id, String nome, String desc, Integer duracao, Integer cargaHorariaTotal,
+			Double cargaHorariaDiaria) {
+		this.id = id;
+		this.nome = nome;
+		this.desc = desc;
+		this.duracao = duracao;
+		this.cargaHorariaTotal = cargaHorariaTotal;
+		this.cargaHorariaDiaria = cargaHorariaDiaria;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getDesc() {
-        return desc;
-    }
+	public String getDesc() {
+		return desc;
+	}
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
 
-    public Integer getDuracao() {
-        return duracao;
-    }
+	public Integer getDuracao() {
+		return duracao;
+	}
 
-    public void setDuracao(Integer duracao) {
-        this.duracao = duracao;
-    }
+	public void setDuracao(Integer duracao) {
+		this.duracao = duracao;
+	}
 
-    public Integer getNumeroAulas() {
-        return numeroAulas;
-    }
+	public Integer getCargaHorariaTotal() {
+		return cargaHorariaTotal;
+	}
 
-    public void setNumeroAulas(Integer numeroAulas) {
-        this.numeroAulas = numeroAulas;
-    }
+	public void setCargaHorariaTotal(Integer cargaHorariaTotal) {
+		this.cargaHorariaTotal = cargaHorariaTotal;
+	}
 
-    public Double getHorasDiarias() {
-        return horasDiarias;
-    }
+	public Double getCargaHorariaDiaria() {
+		return cargaHorariaDiaria;
+	}
 
-    public void setHorasDiarias(Double horasDiarias) {
-        this.horasDiarias = horasDiarias;
-    }
+	public void setCargaHorariaDiaria(Double cargaHorariaDiaria) {
+		this.cargaHorariaDiaria = cargaHorariaDiaria;
+	}
+
 }
