@@ -8,6 +8,14 @@ public class Professor {
 	private String formacao;
 	private String sexo;
 
+
+	public Professor(String nome, Integer idade, String formacao, String sexo) {
+		this.nome = nome;
+		this.idade = idade;
+		this.formacao = formacao;
+		this.sexo = sexo;
+	}
+
 	public Professor(Integer id, String nome, Integer idade, String formacao, String sexo) {
 		this.id = id;
 		this.nome = nome;

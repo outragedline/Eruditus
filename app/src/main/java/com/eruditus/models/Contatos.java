@@ -5,6 +5,12 @@ public class Contatos {
 	private String email;
 	private String telefone;
 
+
+	public Contatos(String email, String telefone) {
+		this.email = email;
+		this.telefone = telefone;
+	}
+
 	public Contatos(Integer id, String email, String telefone) {
 		this.id = id;
 		this.email = email;

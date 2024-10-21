@@ -8,6 +8,16 @@ public class Funcionario {
 	private String sexo;
 	private String funcao;
 
+
+	public Funcionario(String nome, Integer idade, String formacao, String sexo,
+			String funcao) {
+		this.nome = nome;
+		this.idade = idade;
+		this.formacao = formacao;
+		this.sexo = sexo;
+		this.funcao = funcao;
+	}
+
 	public Funcionario(Integer id, String nome, Integer idade, String formacao, String sexo,
 			String funcao) {
 		this.id = id;

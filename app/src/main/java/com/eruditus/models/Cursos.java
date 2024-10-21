@@ -8,6 +8,15 @@ public class Cursos {
 	private Integer cargaHorariaTotal;
 	private Double cargaHorariaDiaria;
 
+	public Cursos(String nome, String desc, Integer duracao, Integer cargaHorariaTotal,
+			Double cargaHorariaDiaria) {
+		this.nome = nome;
+		this.desc = desc;
+		this.duracao = duracao;
+		this.cargaHorariaTotal = cargaHorariaTotal;
+		this.cargaHorariaDiaria = cargaHorariaDiaria;
+	}
+
 	public Cursos(Integer id, String nome, String desc, Integer duracao, Integer cargaHorariaTotal,
 			Double cargaHorariaDiaria) {
 		this.id = id;

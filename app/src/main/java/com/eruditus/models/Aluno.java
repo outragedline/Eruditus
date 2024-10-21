@@ -7,6 +7,12 @@ public class Aluno {
 	private String sexo;
 	private Integer idade;
 
+	public Aluno(String nome, String sexo, Integer idade) {
+		this.nome = nome;
+		this.sexo = sexo;
+		this.idade = idade;
+	}
+
 	public Aluno(Integer id, String nome, String sexo, Integer idade) {
 		this.id = id;
 		this.nome = nome;

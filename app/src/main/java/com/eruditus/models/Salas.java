@@ -8,6 +8,16 @@ public class Salas {
 	private String recursos;
 	private String andar;
 
+
+	public Salas(String nome, Integer capacidade, String tipo, String recursos,
+			String andar) {
+		this.nome = nome;
+		this.capacidade = capacidade;
+		this.tipo = tipo;
+		this.recursos = recursos;
+		this.andar = andar;
+	}
+
 	public Salas(Integer id, String nome, Integer capacidade, String tipo, String recursos,
 			String andar) {
 		this.id = id;
