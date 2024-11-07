@@ -1,0 +1,15 @@
+services:
+  mariadb:
+    image: mariadb
+    restart: always
+    ports:
+      - 3306:3306
+    network_mode: host
+    environment:
+      MARIADB_USER: eruditus
+      MARIADB_PASSWORD: eruditus
+      MARIADB_DATABASE: eruditus
+      MARIADB_ROOT_PASSWORD: eruditus
+
+    volumes:
+      - .:/sql/
