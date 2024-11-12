@@ -1,5 +1,6 @@
 package com.eruditus.api.model;
 
+import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +9,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
 
 @Entity
-public class Contatos {
+public class Contatos implements Serializable {
     
     @Id
     @GeneratedValue
