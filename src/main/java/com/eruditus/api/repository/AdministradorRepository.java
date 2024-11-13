@@ -1,5 +1,13 @@
 package com.eruditus.api.repository;
 
-public interface AdministradorRepository {
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import com.eruditus.api.model.Aluno;
+
+public interface AdministradorRepository extends CrudRepository<Administrador, String>{
+    
+    Aluno findByCodigo(long id);
+    List<Aluno> findByNome(String nome);
     
 }
