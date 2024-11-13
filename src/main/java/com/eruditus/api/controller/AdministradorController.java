@@ -41,4 +41,31 @@ public class AdministradorController {
         return "redirect:/cadastrarAluno";
     }
     
+    @RequestMapping("/aluno")
+    public ModelAndView listaAlunos(){        
+        ModelAndView mv = ModelAndView("aluno/listaAluno");
+        Iterable<Aluno>aluno = alunoR.findAll();
+        mv.addObject("aluno", aluno);
+        return mv;   
+    }
+    
+    @RequestMapping (value = "/{id}", method = RequestMethod.GET)
+    public ModelAndView detalhesAluno(@PathVariable("id") long id){
+        Aluno aluno = vr.findByCodigo(id);
+        ModelAndView mv = new ModelAndView ("aluno/detalhesAluno");
+        mv.addObject("aluno", aluno);
+        
+        Iterable<Cursos>curso = cr.findByAluno(aluno);
+        mv.addObject("Cursos", cursos);
+        
+        Iterable<Turma>turma = tr.findByTurma(turma);
+        mv.addObject("Turma", turma);
+        
+        Iterable<Contatos>contatos = contatosR.findByContatos(contatos);
+        mv.addObject("Contatos", contato);
+        
+        return mv;
+        
+    }
+    
 }
