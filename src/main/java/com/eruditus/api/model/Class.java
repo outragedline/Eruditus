@@ -27,7 +27,7 @@ public class Class implements Serializable {
         return capacity;
     }
 
-    public void setVagas(long capacity) {
+    public void setCapacity(long capacity) {
         this.capacity = capacity;
     }
 
@@ -35,7 +35,7 @@ public class Class implements Serializable {
         return student;
     }
 
-    public void setAluno(List<Student> student) {
+    public void setStudent(List<Student> student) {
         this.student = student;
     }
     
