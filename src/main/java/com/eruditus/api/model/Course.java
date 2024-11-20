@@ -11,23 +11,20 @@ import java.util.List;
 
 @Entity
 public class Course implements Serializable {
-    
+
     @Id
     @GeneratedValue
     @Column(unique = true)
-    private long id;
-    
+    private Long id;
+
     @NotEmpty
     private String name;
-    
+
     @NotEmpty
     private String description;
-    
+
     @NotEmpty
     private Integer duration;
-    
-    @OneToMany
-    private List<Class> classObject;
 
     public String getName() {
         return name;
@@ -52,15 +49,4 @@ public class Course implements Serializable {
     public void setDuration(Integer duration) {
         this.duration = duration;
     }
-
-    public List<Class> getClassObject() {
-        return classObject;
-    }
-
-    public void setClass(List<Class> classObject) {
-        this.classObject = classObject;
-    }
-    
-    
-    
 }

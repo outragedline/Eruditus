@@ -11,65 +11,53 @@ import java.util.List;
 
 @Entity
 public class Teacher implements Serializable {
-    
-    @Id
-    @GeneratedValue
-    @Column (unique = true)
-    private long id;
-    
-    @NotEmpty
-    private String name;
-    
-    @NotEmpty
-    private long age;
-    
-    @NotEmpty
-    private String qualification;
-    
-    @NotEmpty
-    private String gender;
-    
-    @OneToMany
-    private List<Contacts>contacts;
 
-    public String getName() {
-        return name;
-    }
+	@Id
+	@GeneratedValue
+	@Column(unique = true)
+	private long id;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	@NotEmpty
+	private String name;
 
-    public long getAge() {
-        return age;
-    }
+	@NotEmpty
+	private long age;
 
-    public void setAge(long age) {
-        this.age = age;
-    }
+	@NotEmpty
+	private String qualification;
 
-    public String getQualification() {
-        return qualification;
-    }
+	@NotEmpty
+	private String gender;
 
-    public void setQualification(String qualification) {
-        this.qualification = qualification;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getGender() {
-        return gender;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+	public long getAge() {
+		return age;
+	}
 
-    public List<Contacts> getContacts() {
-        return contacts;
-    }
+	public void setAge(long age) {
+		this.age = age;
+	}
 
-    public void setContacts(List<Contacts> contacts) {
-        this.contacts = contacts;
-    }
+	public String getQualification() {
+		return qualification;
+	}
 
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 }
