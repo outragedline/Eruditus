@@ -21,13 +21,11 @@ public class AuthService {
 
 	@Transactional
 	public User signUp(SignUpDTO data) {
-		if (repository.findByEmail(data.email()).isPresent()
-				|| repository.findByUsername(data.username()).isPresent()) {
+		if (repository.findByUsername(data.username()).isPresent()) {
 			throw new RuntimeException("Tried to create a user that already exists!");
 		}
 
 		User user = new User();
-		user.setEmail(data.email());
 		user.setUsername(data.username());
 		user.setPassword(passwordEncoder.encode(data.password()));
 		user.setRole(UserRole.USER);
