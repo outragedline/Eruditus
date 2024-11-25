@@ -1,6 +1,9 @@
 package com.eruditus.api.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +15,7 @@ import com.eruditus.api.repository.UserRepository;
 import jakarta.transaction.Transactional;
 
 @Service
-public class AuthService {
+public class AuthService implements UserDetailsService {
 	@Autowired
 	private UserRepository repository;
 
@@ -31,4 +34,11 @@ public class AuthService {
 		user.setRole(UserRole.USER);
 		return repository.save(user);
 	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		return repository.findByUsername(username)
+				.orElseThrow(() -> new RuntimeException("User not found by username"));
+	}
+
 }
