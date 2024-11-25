@@ -56,6 +56,6 @@ public class AuthController {
 			return new ResponseEntity<>(responseBody, HttpStatus.CONFLICT);
 		}
 
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 }
