@@ -12,4 +12,7 @@ import com.eruditus.api.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {
 	Optional<UserDetails> findByUsername(String username);
+
+	Optional<User> findModelByUsername(String username);
+
 }

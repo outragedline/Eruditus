@@ -40,7 +40,7 @@ public class Season {
 	private Course course;
 
 	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
-	private List<Season> seasons;
+	private List<Lesson> lessons;
 
 	@CreationTimestamp
 	private LocalDateTime createdAt;
