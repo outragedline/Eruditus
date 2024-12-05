@@ -1,6 +1,7 @@
 package com.eruditus.api.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -47,4 +48,11 @@ public class Season {
 
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
+
+	public List<Lesson> getLessons() {
+		if (lessons == null) {
+			lessons = new ArrayList<>();
+		}
+		return lessons;
+	}
 }
