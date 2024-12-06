@@ -35,10 +35,15 @@ public class AuthService implements UserDetailsService {
 		return repository.save(user);
 	}
 
+	public User findByUsername(String username) {
+		User user = repository.findModelByUsername(username)
+				.orElseThrow(() -> new RuntimeException("Username not found"));
+		return user;
+	}
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		return repository.findByUsername(username)
 				.orElseThrow(() -> new RuntimeException("User not found by username"));
 	}
-
 }

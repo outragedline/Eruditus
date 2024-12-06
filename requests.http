@@ -1,0 +1,33 @@
+@url = http://localhost:8080
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlcnVkaXR1cy1hdXRoIiwic3ViIjoicm9vdCIsImV4cCI6MTczMzQxMTkwNn0.xUYzCGnnEceJXeOMG0R40lPeoSb4OWhzdAbxfYSW_TA
+###
+POST {{url}}/auth/signup HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+	"username": "outragedline",
+	"password": "outragedline"
+}
+###
+
+POST {{url}}/auth/login HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+	"username": "root",
+	"password": "root"
+}
+###
+
+POST {{url}}/courses HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+	"title": "teste",
+	"description": "teste"
+}
+###
