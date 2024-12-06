@@ -44,9 +44,8 @@ public class AuthConfig {
 		return http.csrf(csrf -> csrf.disable())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(authorize -> authorize
-						.requestMatchers("/auth/signup", "/auth/login").permitAll()
 						.requestMatchers(HttpMethod.POST, "/courses").hasRole(UserRole.ADMIN.name())
-						.anyRequest().authenticated())
+						.anyRequest().permitAll())
 				.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
 				.build();
 	}
