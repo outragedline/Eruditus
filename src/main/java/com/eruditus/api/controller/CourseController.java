@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +42,7 @@ public class CourseController {
 			Course course = new Course();
 			course.setTitle(data.title());
 			course.setDescription(data.description());
+			course.setCategory(data.category());
 			createdCourse = courseService.createCourse(course);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,4 +68,16 @@ public class CourseController {
 		}
 		return ResponseEntity.ok(new CourseDTO(course));
 	}
+
+	@DeleteMapping("/{id}")
+	ResponseEntity<?> deleteCourse(@PathVariable UUID id) {
+		try {
+			courseService.deleteCourse(id);
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
 }

@@ -2,5 +2,7 @@ package com.eruditus.api.dto.course;
 
 public record CourseCreationDTO(
 		String title,
-		String description) {
+		String description,
+		String category
+) {
 }
