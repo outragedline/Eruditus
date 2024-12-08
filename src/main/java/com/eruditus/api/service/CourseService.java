@@ -29,4 +29,10 @@ public class CourseService {
 	public List<Course> getAllCourses(UUID id) {
 		return repository.findAll();
 	}
+
+	public void deleteCourse(UUID id) {
+		Course course = repository.findById(id).orElseThrow(() -> new RuntimeException());
+		repository.delete(course);
+		return;
+	}
 }
