@@ -12,14 +12,17 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eruditus.api.dto.auth.LoginDTO;
 import com.eruditus.api.dto.auth.LoginResponseDTO;
 import com.eruditus.api.dto.auth.SignUpDTO;
+import com.eruditus.api.dto.auth.UserDetailsDTO;
 import com.eruditus.api.model.User;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import com.eruditus.api.service.AuthService;
 import com.eruditus.api.service.TokenService;;
@@ -59,6 +62,21 @@ public class AuthController {
 
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
+
+	@GetMapping("me")
+	public ResponseEntity<UserDetailsDTO> userDetails(HttpServletRequest request) {
+		String authHeader = request.getHeader("Authorization");
+		String token, username = null;
+		if (authHeader == null)
+			return ResponseEntity.unprocessableEntity().build();
+		token = authHeader.replace("Bearer ", "");
+		if (token == null) {
+			return ResponseEntity.unprocessableEntity().build();
+		}
+		username = tokenService.validateToken(token);
+		User user = authService.findByUsername(username);
+		return ResponseEntity.ok(new UserDetailsDTO(user));
+	};
 
 	@GetMapping("verifyToken")
 	public ResponseEntity<?> verifyToken() {
