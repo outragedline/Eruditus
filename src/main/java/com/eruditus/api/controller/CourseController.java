@@ -1,5 +1,6 @@
 package com.eruditus.api.controller;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +36,12 @@ public class CourseController {
 
 	@Autowired
 	AuthService authService;
+
+	@GetMapping
+	ResponseEntity<?> getAllCourses() {
+		List<Course> courses = courseService.getAllCourses();
+		return ResponseEntity.ok(courses);
+	}
 
 	@PostMapping
 	ResponseEntity<?> createCourse(@Valid @RequestBody CourseCreationDTO data) {
@@ -61,7 +69,7 @@ public class CourseController {
 	ResponseEntity<CourseDTO> courseDetails(@PathVariable UUID id) {
 		Course course;
 		try {
-			course = courseService.getCourseById(id);
+			course = courseService.findById(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -80,4 +88,13 @@ public class CourseController {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
+	@PutMapping("/{id}")
+	ResponseEntity<?> updateCourse(@PathVariable UUID id, @Valid @RequestBody CourseCreationDTO data) {
+		Course course = new Course();
+		course.setTitle(data.title());
+		course.setDescription(data.description());
+		course.setCategory(data.category());
+		course = courseService.updateCourse(id, course);
+		return ResponseEntity.ok().build();
+	}
 }

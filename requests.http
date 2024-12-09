@@ -28,7 +28,8 @@ Authorization: Bearer {{token}}
 
 {
 	"title": "teste",
-	"description": "teste"
+	"description": "teste",
+	"category": "teste"
 }
 ###
 
@@ -45,4 +46,24 @@ Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
 
+###
+
+
+GET {{url}}/courses HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+PUT {{url}}/courses/d4c02081-145a-4650-b61d-1223abf56e5c HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+	"title": "teste2",
+	"description": "teste",
+	"category": "teste"
+}
 ###
