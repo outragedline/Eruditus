@@ -26,7 +26,7 @@ public class CourseService {
 		return repository.findById(id).orElseThrow(() -> new Exception("Course not found with id: " + id));
 	}
 
-	public List<Course> getAllCourses() {
+	public List<Course> findAllCourses() {
 		return repository.findAll();
 	}
 

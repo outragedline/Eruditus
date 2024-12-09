@@ -40,8 +40,6 @@ public class Lesson {
 	@NotBlank
 	private String videoUrl;
 
-	private Integer durationSeconds;
-
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "season_id", nullable = false)
 	private Season season;

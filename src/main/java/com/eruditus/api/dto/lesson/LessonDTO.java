@@ -1,4 +1,4 @@
-package com.eruditus.api.dto.course;
+package com.eruditus.api.dto.lesson;
 
 import java.util.UUID;
 
@@ -10,15 +10,13 @@ public record LessonDTO(
 		UUID id,
 		String title,
 		String description,
-		String videoUrl,
-		Integer durationSeconds) {
+		String videoUrl) {
 
 	public LessonDTO(Lesson lesson) {
 		this(
 				lesson.getId(),
 				lesson.getTitle(),
 				lesson.getDescription(),
-				lesson.getVideoUrl(),
-				lesson.getDurationSeconds());
+				lesson.getVideoUrl());
 	}
 }

@@ -1,10 +1,11 @@
-package com.eruditus.api.dto.course;
+package com.eruditus.api.dto.season;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import com.eruditus.api.dto.lesson.LessonDTO;
 import com.eruditus.api.model.Course;
 import com.eruditus.api.model.Season;
 

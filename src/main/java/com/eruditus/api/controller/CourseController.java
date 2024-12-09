@@ -39,7 +39,7 @@ public class CourseController {
 
 	@GetMapping
 	ResponseEntity<?> getAllCourses() {
-		List<Course> courses = courseService.getAllCourses();
+		List<Course> courses = courseService.findAllCourses();
 		return ResponseEntity.ok(courses);
 	}
 
